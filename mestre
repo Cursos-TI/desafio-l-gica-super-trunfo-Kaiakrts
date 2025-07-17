@@ -17,8 +17,6 @@ float area, area2, pib, pib2, densidade, densidade2, pibcap, pibcap2;
 
 char cidade1 [20], cidade2 [20];
 
-//Cidade 1
-
 printf("Insira o nome da primeira cidade: ");
 scanf("%s", &cidade1);
 printf("\n");
@@ -40,7 +38,6 @@ scanf("%f", &pib);
 printf("Digite quantos pontos turisticos tem a cidade %s: ", cidade1);
 scanf("%d", &pontos);
 printf("\n");
-//Cidade 2
 
 printf("Dados da Cidade %s\n", cidade2);
 printf("Digite o numero da populacao: ");
@@ -81,7 +78,7 @@ printf("Pontos turisticos na Cidade %s: %d\n", cidade1, pontos);
 printf("Pontos turisticos na Cidade %s: %d\n", cidade2, pontos2);
 printf("\n");
 
-int atributos, atributos2;
+int atributos, atributos2, atributos3;
 
 
 printf("Escolha o primeiro atributo a ser comparado\n\n");
@@ -90,10 +87,10 @@ printf("[2]area\n");
 printf("[3]Pib\n");
 printf("[4]Pontos turisticos\n");
 printf("[5]Pib per capita\n");
-printf("[6]Densidade\n");
+printf("[6]Densidade\n\n");
 printf("Digite o numero correspondete ao seu atributo: ");
 scanf("%d", &atributos);
-printf("\n")
+printf("\n");
 
 if (atributos > 6)
 {
@@ -107,12 +104,30 @@ printf("[2]area\n");
 printf("[3]Pib\n");
 printf("[4]Pontos turisticos\n");
 printf("[5]Pib per capita\n");
-printf("[6]Densidade\n");
+printf("[6]Densidade\n\n");
 printf("Digite o numero correspondete ao seu atributo: ");
 scanf("%d", &atributos2);
-printf("\n")
+printf("\n");
 
-if (atributos > 6)
+if (atributos2 > 6)
+
+{
+    printf("atributo invalido, fechando...");
+    return 0;
+}
+
+printf("Escolha o terceiro atributo a ser comparado\n\n");
+printf("[1]populacao\n");
+printf("[2]area\n");
+printf("[3]Pib\n");
+printf("[4]Pontos turisticos\n");
+printf("[5]Pib per capita\n");
+printf("[6]Densidade\n\n");
+printf("Digite o numero correspondete ao seu atributo: ");
+scanf("%d", &atributos3);
+printf("\n");
+
+if (atributos3 > 6)
 
 {
     printf("atributo invalido, fechando...");
@@ -171,18 +186,18 @@ else
     break;
 case 4:
     printf("Pontos turisticos na cidade %s: %d\n", cidade1, pontos);
-    printf("Pontos turisticos na Cidade %s: %d\n", cidade2, pontos2);
+    printf("Pontos turisticos na cidade %s: %d\n", cidade2, pontos2);
     if (pontos > pontos2)
 {placarcidade1++;
-    printf("1 Ponto para %s\n\n", cidade1);
+    printf("\n1 Ponto para %s\n\n", cidade1);
 }
 else if (pontos == pontos2)
 {
-    printf ("Empate\n\n");
+    printf ("\nEmpate\n\n");
 }
 else
 {placarcidade2++;
-     printf("1 Ponto para %s\n\n", cidade2);
+     printf("\n1 Ponto para %s\n\n", cidade2);
 }
     break;
 case 5: 
@@ -274,18 +289,122 @@ else
     break;
 case 4:
     printf("Pontos turisticos na cidade %s: %d\n", cidade1, pontos);
-    printf("Pontos turisticos na Cidade %s: %d\n", cidade2, pontos2);
+    printf("Pontos turisticos na cidade %s: %d\n", cidade2, pontos2);
     if (pontos > pontos2)
 {placarcidade1++;
-    printf("1 Ponto para %s\n\n", cidade1);
+    printf("\n1 Ponto para %s\n\n", cidade1);
 }
 else if (pontos == pontos2)
+{
+    printf ("\nEmpate\n\n");
+}
+else
+{placarcidade2++;
+     printf("\n1 Ponto para %s\n\n", cidade2);
+}
+    break;
+case 5: 
+    printf("O PIB per capita da cidade %s e de: %.3f R$\n", cidade1, pibcap);
+    printf("O PIB per capita da cidade %s e de: %.3f R$\n\n", cidade2, pibcap2);
+    if (pibcap> pibcap2)
+{placarcidade1++;
+     printf("1 Ponto para %s\n\n", cidade1);
+}
+else if (pibcap == pibcap2)
 {
     printf ("Empate\n\n");
 }
 else
 {placarcidade2++;
      printf("1 Ponto para %s\n\n", cidade2);
+}
+    break;
+case 6:
+    printf("A Densidade populacional da cidade %s e de: %.3f hab/km2\n", cidade1, densidade);
+    printf("A Densidade populacional da cidade %s e de: %.3f hab/km2\n\n", cidade2, densidade2);
+    if (densidade < densidade2)
+{placarcidade1++;
+    printf("1 Ponto para %s\n\n", cidade1);
+}
+else if (densidade == densidade2)
+{
+    printf ("Empate\n\n");
+}
+else
+{placarcidade2++;
+     printf("1 Ponto para %s\n\n", cidade2);;
+}
+    break;
+default:
+    printf("Atributo n correspondente");
+    return 0;
+    break;
+}
+
+switch (atributos3)
+{
+case 1:
+    printf("Populacao da cidade %s: %lu\n", cidade1, populacao);
+    printf("Populacao da cidade %s: %lu\n\n", cidade2, populacao2);
+    if (populacao > populacao2)
+{ placarcidade1++;
+    printf("1 Ponto para %s\n\n", cidade1);
+}
+else if (populacao == populacao2)
+{
+    printf ("Empate\n\n");
+}
+else
+{ placarcidade2++;
+     printf("1 Ponto para %s\n\n", cidade2);
+}
+    break;
+case 2:
+    printf("A area da cidade %s: %.3f km2\n", cidade1, area);
+    printf("A area da cidade %s: %.3f km2\n\n", cidade2, area2);
+    if (area > area2)
+{placarcidade1++;
+    printf("1 Ponto para %s\n\n", cidade1);
+}
+else if (area == area2)
+{
+    printf ("Empate\n\n");
+}
+else
+{placarcidade2++;
+     printf("1 Ponto para %s\n\n", cidade2);
+}
+    break;
+case 3:
+    printf("PIB da cidade %s: %.2f \n", cidade1, pib);
+    printf("PIB da cidade %s: %.2f \n\n", cidade2, pib2);
+    if (pib > pib2)
+{placarcidade1++;
+    printf("1 Ponto para %s\n\n", cidade1);
+}
+else if (pib == pib2)
+{
+    printf ("Empate\n\n");
+}
+else
+{placarcidade2++;
+     printf("1 Ponto para %s\n\n", cidade2);
+}
+    break;
+case 4:
+    printf("Pontos turisticos na cidade %s: %d\n", cidade1, pontos);
+    printf("Pontos turisticos na cidade %s: %d\n", cidade2, pontos2);
+    if (pontos > pontos2)
+{placarcidade1++;
+    printf("\n1 Ponto para %s\n\n", cidade1);
+}
+else if (pontos == pontos2)
+{
+    printf ("\nEmpate\n\n");
+}
+else
+{placarcidade2++;
+     printf("\n1 Ponto para %s\n\n", cidade2);
 }
     break;
 case 5: 
@@ -327,9 +446,11 @@ default:
 }
 if (placarcidade1 == placarcidade2)
 {
-    printf("Empate");
+    printf("As cidades empataram!");
 }
-else (placarcidade1 ? printf("A cidade %s ganhou", cidade1) : printf("A cidade %s ganhou", cidade2));
+else (placarcidade1 ? printf("A cidade %s ganhou!", cidade1) : printf("A cidade %s ganhou!", cidade2));
 
-return 0;
+printf("\n");
+
+return 0; 
 }
